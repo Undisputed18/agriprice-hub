@@ -50,7 +50,7 @@ export default function LocationPicker({
     }).addTo(map.current);
 
     // Handle marker drag
-    markerRef.current.on('dragend', () => {
+    markerRef.current?.on('dragend', () => {
       if (markerRef.current) {
         const latlng = markerRef.current.getLatLng();
         setLatitude(latlng.lat);
