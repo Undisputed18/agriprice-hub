@@ -1,0 +1,358 @@
+.officer-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  min-height: calc(100vh - 2rem);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 55%);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.officer-sidebar {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  height: fit-content;
+}
+
+.officer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.officer-market {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.officer-nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.officer-link {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text-primary);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.officer-link:hover {
+  background: var(--accent-soft);
+  border-color: rgba(60, 143, 58, 0.45);
+}
+
+.officer-link.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.officer-content {
+  min-width: 0;
+}
+
+.officer-page {
+  padding: 0.25rem 0;
+  max-width: 1100px;
+}
+
+.officer-page h1 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.stat-card p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.action-card {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Form */
+.form-card {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 22px var(--shadow-color);
+  border-left: 4px solid var(--accent);
+}
+
+.form-card label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-card input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.form-card input:disabled {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.primary-btn:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+/* Table */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  text-align: left;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filters-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+  margin: 1rem 0 1.5rem;
+}
+
+.filter-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.btn-export {
+  justify-self: start;
+  height: 36px;
+}
+
+.table-input {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.btn-small {
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.btn-danger {
+  background: #b91c1c;
+  color: #ffffff;
+  border-color: #b91c1c;
+}
+
+.error-text {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: #f87171;
+}
+
+.field-error {
+  border-color: #f87171;
+}
+
+/* Status */
+.status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.status.pending { background: orange; color: black; }
+.status.approved { background: green; color: white; }
+.status.rejected { background: crimson; color: white; }
+
+/* Profile */
+.profile-card {
+  max-width: 600px;
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 22px var(--shadow-color);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.profile-card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.profile-card p {
+  margin: 0.35rem 0;
+  color: var(--text-primary);
+}
+
+.profile-form {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.profile-form h2 {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.profile-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 18px var(--shadow-color);
+}
+
+.profile-section h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.profile-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.profile-field label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.profile-field input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.profile-edit-card {
+  margin-top: 2rem;
+}
+
+.profile-save {
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .officer-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .officer-sidebar {
+    position: static;
+  }
+}

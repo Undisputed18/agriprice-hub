@@ -1,0 +1,193 @@
+/* app/globals.css - Exact conversion */
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3c8f3a;
+  --color-primary-dark: #2f7c2f;
+  
+  --color-background-light: #ffffff;
+  --color-background-dark: #0a1f0a;
+  
+  --color-surface-light: #f5f5f5;
+  --color-surface-dark: #142b14;
+  
+  --color-text-dark: #1a1a1a;
+  --color-text-light: #e8f5e9;
+  --color-text-secondary: #666666;
+  
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-border-dark: rgba(165, 214, 167, 0.2);
+}
+
+.material-icons, .material-symbols-outlined {
+  font-family: inherit;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+}
+
+/* CSS Variables for Theme */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0a1f0a; /* Deep Forest Green */
+  --bg-secondary: #142b14; /* Darker Green Surface */
+  --text-primary: #e8f5e9; /* Light Green/White */
+  --text-secondary: #a5d6a7; /* Muted Green */
+  --border-color: rgba(165, 214, 167, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* App Container - ensures navbar and footer stay visible */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container.light-mode {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.app-container.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  width: 100%;
+  min-height: 0; /* allow flex child to shrink if needed */
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* Force dark theme for Market Officer pages (only when class applied) */
+.main-content.officer-theme {
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #323232;
+  --text-primary: #ededed;
+  --text-secondary: #b7b7b7;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --accent: #3c8f3a;
+  --accent-strong: #2f7c2f;
+  --accent-soft: rgba(60, 143, 58, 0.2);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.officer-shell.officer-theme {
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #323232;
+  --text-primary: #ededed;
+  --text-secondary: #b7b7b7;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --accent: #3c8f3a;
+  --accent-strong: #2f7c2f;
+  --accent-soft: rgba(60, 143, 58, 0.2);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Legacy styles - keeping for compatibility */
+/* Note: #root selector will still work in Next.js */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: var(--text-secondary);
+}
+
+/* Additional Next.js compatibility - NO style changes */
+/* Just ensures body takes full height */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Add to app/globals.css */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
