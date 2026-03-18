@@ -693,94 +693,99 @@ a:hover, .nav-link:hover, .back-home:hover, .footer-links a:hover,
   font-weight: 700;
 }
 
-[data-theme="dark"] .step-content p {
-  color: #b0b0b0;
-}
-
-[data-theme="dark"] .feature-icon {
-  color: #4caf50;
-}
-
-[data-theme="dark"] .price-item {
-  color: #e0e0e0;
-  background-color: #3a3a3a;
-  border-color: #444;
-}
-
-[data-theme="dark"] .crop-name {
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .price-change {
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .price-change.positive {
-  color: #66bb6a;
-}
-
-[data-theme="dark"] .price-change.negative {
-  color: #ef5350;
-}
-
-[data-theme="dark"] .current-price {
-  color: #b0b0b0;
-}
-
-[data-theme="dark"] .trust-badges {
-  color: #b0b0b0;
-}
-
-[data-theme="dark"] .trust-badges i {
-  color: #4caf50;
-}
-
+/* Force light theme for Role Section in dark mode */
 [data-theme="dark"] .role-section {
-  background-color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 [data-theme="dark"] .role-card {
-  background-color: #2d2d2d;
-  border-color: #444;
-  color: #e0e0e0;
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  color: #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] .role-card:hover {
-  border-color: #4caf50;
-  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="dark"] .role-card h3 {
-  color: #e0e0e0;
+  color: #1e293b;
 }
 
 [data-theme="dark"] .role-price {
-  color: #4caf50;
+  color: #16a34a;
 }
 
 [data-theme="dark"] .role-features {
-  color: #b0b0b0;
+  color: #64748b;
 }
 
 [data-theme="dark"] .role-features li {
-  color: #b0b0b0;
+  color: #475569;
 }
 
 [data-theme="dark"] .role-features i {
-  color: #4caf50;
+  color: #16a34a;
 }
 
 [data-theme="dark"] .join-link {
-  color: #4caf50;
+  color: #16a34a;
 }
 
 [data-theme="dark"] .card-badge {
-  background-color: #4caf50;
-  color: #1a1a1a;
+  background-color: #f59e0b;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .role-icon {
-  color: #4caf50;
+  color: #16a34a;
+}
+
+/* Force light theme for Price Tracking in dark mode */
+[data-theme="dark"] .feature-highlight {
+  background-color: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .feature-highlight h3 {
+  color: #166534;
+}
+
+[data-theme="dark"] .feature-highlight p {
+  color: #64748b;
+}
+
+[data-theme="dark"] .price-updates {
+  background-color: #f8fff8;
+  border-color: #e0f2e0;
+}
+
+[data-theme="dark"] .price-item {
+  background-color: transparent;
+  border-bottom-color: #e8f5e8;
+}
+
+[data-theme="dark"] .crop-name {
+  color: #166534;
+}
+
+[data-theme="dark"] .current-price {
+  color: #334155;
+}
+
+[data-theme="dark"] .price-change.positive {
+  background-color: #e8f5e8;
+  color: #16a34a;
+}
+
+[data-theme="dark"] .price-change.negative {
+  background-color: #ffebee;
+  color: #dc2626;
+}
+
+[data-theme="dark"] .feature-icon {
+  color: #16a34a;
 }
 
 [data-theme="dark"] .final-cta {
