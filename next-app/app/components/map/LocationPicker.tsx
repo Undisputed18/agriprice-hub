@@ -16,6 +16,7 @@ interface LocationPickerProps {
   initialAddress?: string;
 }
 
+// LocationPicker component with full null safety checks for Leaflet
 export default function LocationPicker({
   onLocationSelect,
   initialLat = -1.286389,
