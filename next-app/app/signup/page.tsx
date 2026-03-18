@@ -1,12 +1,12 @@
 // app/signup/page.tsx - RESTORED FULL UI WITH PASSWORD TOGGLE
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import '../pages.css';
 
-export default function Signup() {
+function SignupForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [userType, setUserType] = useState<'farmer' | 'dealer' | 'officer'>('farmer');
@@ -295,5 +295,13 @@ export default function Signup() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Signup() {
+  return (
+    <Suspense fallback={<div className="auth-page"><div className="auth-container" style={{ textAlign: 'center', padding: '50px' }}>Loading...</div></div>}>
+      <SignupForm />
+    </Suspense>
   );
 }
