@@ -41,13 +41,13 @@ export default function LocationPicker({
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors',
       maxZoom: 19,
-    }).addTo(map.current);
+    }).addTo(map.current!);
 
     // Add initial marker
     markerRef.current = L.marker([initialLat, initialLng], {
       draggable: true,
       title: 'Your shop location',
-    }).addTo(map.current);
+    }).addTo(map.current!);
 
     // Handle marker drag
     markerRef.current?.on('dragend', () => {
@@ -61,7 +61,7 @@ export default function LocationPicker({
     });
 
     // Handle map click
-    map.current.on('click', (e: any) => {
+    map.current?.on('click', (e: any) => {
       const { lat, lng } = e.latlng;
       setLatitude(lat);
       setLongitude(lng);
