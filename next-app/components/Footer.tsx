@@ -11,43 +11,29 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{
-      backgroundColor: isDarkMode ? '#0a2e01' : '#1b5e20',
-      color: 'white',
-      padding: '2rem',
-      marginTop: 'auto',
-      textAlign: 'center',
-      borderTop: isDarkMode ? '1px solid rgba(255, 255, 255, 0.15)' : 'none',
-    }}>
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1.5rem',
-      }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '2rem',
-          flexWrap: 'wrap',
-        }}>
-          <Link href="/" style={{ color: 'white', textDecoration: 'none' }}>
+    <footer className={`py-8 mt-auto text-center border-t ${
+      isDarkMode 
+        ? 'bg-[#0a2e01] text-white border-white/15' 
+        : 'bg-[#1b5e20] text-white border-none'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 flex flex-col gap-6">
+        <div className="flex justify-center gap-4 md:gap-8 flex-wrap">
+          <Link href="/" className="text-white no-underline hover:underline transition-all">
             Home
           </Link>
           
           {!user ? (
             <>
-              <Link href="/about" style={{ color: 'white', textDecoration: 'none' }}>
+              <Link href="/about" className="text-white no-underline hover:underline transition-all">
                 About
               </Link>
-              <Link href="/contact" style={{ color: 'white', textDecoration: 'none' }}>
+              <Link href="/contact" className="text-white no-underline hover:underline transition-all">
                 Contact
               </Link>
-              <Link href="/login" style={{ color: 'white', textDecoration: 'none' }}>
+              <Link href="/login" className="text-white no-underline hover:underline transition-all">
                 Login
               </Link>
-              <Link href="/signup" style={{ color: 'white', textDecoration: 'none' }}>
+              <Link href="/signup" className="text-white no-underline hover:underline transition-all">
                 Sign Up
               </Link>
             </>
@@ -55,39 +41,39 @@ export default function Footer() {
             <>
               {user.role === 'officer' && (
                 <>
-                  <Link href="/officerdashboard" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/officerdashboard" className="text-white no-underline hover:underline transition-all">
                     Dashboard
                   </Link>
-                  <Link href="/price-submission" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/price-submission" className="text-white no-underline hover:underline transition-all">
                     Price Submission
                   </Link>
-                  <Link href="/price-management" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/price-management" className="text-white no-underline hover:underline transition-all">
                     Price Management
                   </Link>
                 </>
               )}
               {user.role === 'dealer' && (
                 <>
-                  <Link href="/agrodealer-dashboard" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/agrodealer-dashboard" className="text-white no-underline hover:underline transition-all">
                     Dashboard
                   </Link>
-                  <Link href="/agrodealer/profile" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/agrodealer/profile" className="text-white no-underline hover:underline transition-all">
                     Profile
                   </Link>
-                  <Link href="/agrodealer/inventory" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/agrodealer/inventory" className="text-white no-underline hover:underline transition-all">
                     Inventory
                   </Link>
                 </>
               )}
               {user.role === 'farmer' && (
                 <>
-                  <Link href="/farmer/dashboard" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/farmer/dashboard" className="text-white no-underline hover:underline transition-all">
                     Dashboard
                   </Link>
-                  <Link href="/farmer/market-prices" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/farmer/market-prices" className="text-white no-underline hover:underline transition-all">
                     Market Prices
                   </Link>
-                  <Link href="/farmer/suppliers" style={{ color: 'white', textDecoration: 'none' }}>
+                  <Link href="/farmer/suppliers" className="text-white no-underline hover:underline transition-all">
                     Suppliers
                   </Link>
                 </>
@@ -96,20 +82,15 @@ export default function Footer() {
           )}
         </div>
         
-        <div style={{
-          borderTop: '1px solid rgba(255, 255, 255, 0.2)',
-          paddingTop: '1.5rem',
-          fontSize: '0.9rem',
-          opacity: 0.9,
-        }}>
-          <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap', opacity: 0.8 }}>
-             <Link href="/about" style={{ color: 'white', textDecoration: 'none', fontSize: '0.85rem' }}>About Us</Link>
-             <Link href="/contact" style={{ color: 'white', textDecoration: 'none', fontSize: '0.85rem' }}>Contact Us</Link>
+        <div className="border-t border-white/20 pt-6 opacity-90">
+          <div className="mb-4 flex justify-center gap-6 flex-wrap opacity-80">
+             <Link href="/about" className="text-white no-underline text-sm hover:underline">About Us</Link>
+             <Link href="/contact" className="text-white no-underline text-sm hover:underline">Contact Us</Link>
           </div>
-          <p style={{ margin: 0 }}>
+          <p className="m-0 text-sm">
             © {currentYear} AgriPrice Management System. All rights reserved.
           </p>
-          <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.85rem', opacity: 0.8 }}>
+          <p className="mt-2 text-xs opacity-80 max-w-md mx-auto">
             Streamlining agricultural market transactions and empowering Kenyan farmers
           </p>
         </div>

@@ -258,23 +258,24 @@ export default function FarmerDashboard() {
         <header className="bg-white/80 backdrop-blur-md border-b border-green-100 shadow-sm sticky top-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
-              <div className="flex items-center space-x-4">
-                <div className="h-12 w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg flex items-center justify-center">
-                  <span className="text-2xl">🌾</span>
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="h-10 w-10 md:h-12 md:w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center">
+                  <span className="text-xl md:text-2xl">🌾</span>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
+                  <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
                     AgriPrice
                   </h1>
-                  <span className="text-sm text-green-600 font-medium">Farmer&apos;s Intelligence Dashboard</span>
+                  <span className="text-xs md:text-sm text-green-600 font-medium hidden xs:block">Farmer&apos;s Intelligence</span>
+                  <span className="text-xs md:text-sm text-green-600 font-medium xs:hidden">Farmer</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-6">
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Welcome back,</p>
-                  <p className="text-base font-semibold text-gray-800">{user?.full_name || 'Farmer'}</p>
+              <div className="flex items-center space-x-3 md:space-x-6">
+                <div className="text-right hidden sm:block">
+                  <p className="text-xs text-gray-500">Welcome back,</p>
+                  <p className="text-sm md:text-base font-semibold text-gray-800">{user?.full_name || 'Farmer'}</p>
                 </div>
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-lg">
+                <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-base md:text-lg">
                   {user?.full_name?.charAt(0) || user?.email?.charAt(0) || 'F'}
                 </div>
               </div>
@@ -282,38 +283,38 @@ export default function FarmerDashboard() {
           </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           {/* Welcome Banner */}
-          <div className="relative mb-8 overflow-hidden rounded-3xl bg-gradient-to-r from-green-500 to-emerald-600 p-8 text-white shadow-xl">
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"></div>
-            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-40 w-40 rounded-full bg-black/10 blur-2xl"></div>
+          <div className="relative mb-8 overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-r from-green-500 to-emerald-600 p-6 md:p-8 text-white shadow-xl">
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 h-32 md:h-40 w-32 md:w-40 rounded-full bg-white/10 blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-32 md:h-40 w-32 md:w-40 rounded-full bg-black/10 blur-2xl"></div>
             
             <div className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">🌱</span>
-                <h2 className="text-3xl font-bold">Welcome Back, Farmer!</h2>
+              <div className="flex items-center gap-3 mb-3 md:mb-4">
+                <span className="text-3xl md:text-4xl">🌱</span>
+                <h2 className="text-xl md:text-3xl font-bold truncate">Welcome Back, {user?.full_name?.split(' ')[0] || 'Farmer'}!</h2>
               </div>
-              <p className="text-xl text-green-100 max-w-2xl">
-                Your personalized agricultural intelligence dashboard with real-time market insights
+              <p className="text-base md:text-xl text-green-100 max-w-2xl opacity-90">
+                Your personalized agricultural intelligence dashboard
               </p>
               
               {/* Weather Widget */}
-              <div className="mt-6 flex items-center gap-6 text-sm text-green-100">
+              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-green-100">
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl">{isLoadingWeather ? '⏳' : getWeatherIcon(weatherData?.current?.condition)}</span>
+                  <span className="text-xl md:text-2xl">{isLoadingWeather ? '⏳' : getWeatherIcon(weatherData?.current?.condition)}</span>
                   <div>
-                    <p className="font-medium">{regions.find(r => r.id === selectedRegion)?.name || 'Nairobi'} Region</p>
-                    <p className="text-green-200">
+                    <p className="font-medium text-xs md:text-sm">{regions.find(r => r.id === selectedRegion)?.name || 'Nairobi'} Region</p>
+                    <p className="text-green-200 text-xs md:text-sm">
                       {isLoadingWeather ? 'Loading...' : `${weatherData?.current?.temp || '28'}°C | ${weatherData?.current?.condition || 'Clear'}`}
                     </p>
                   </div>
                 </div>
-                <div className="h-8 w-px bg-green-300/30"></div>
+                <div className="hidden sm:block h-8 w-px bg-green-300/30"></div>
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl">🌧️</span>
+                  <span className="text-xl md:text-2xl">🌧️</span>
                   <div>
-                    <p className="font-medium">Rain Chance</p>
-                    <p className="text-green-200">
+                    <p className="font-medium text-xs md:text-sm">Rain Chance</p>
+                    <p className="text-green-200 text-xs md:text-sm">
                       {isLoadingWeather ? '...' : `${weatherData?.current?.rainChance || '0'}% chance today`}
                     </p>
                   </div>

@@ -319,25 +319,26 @@ export default function FarmerMarketPricesPage() {
         <header className="bg-white/80 backdrop-blur-md border-b border-green-100 shadow-sm sticky top-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
-              <div className="flex items-center space-x-4">
-                <Link href="/" className="h-12 w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg flex items-center justify-center hover:from-green-600 hover:to-emerald-700 transition-colors">
-                  <span className="text-2xl">🌾</span>
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <Link href="/" className="h-10 w-10 md:h-12 md:w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center hover:from-green-600 hover:to-emerald-700 transition-colors">
+                  <span className="text-xl md:text-2xl">🌾</span>
                 </Link>
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
+                  <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
                     Market Prices
                   </h1>
-                  <span className="text-sm text-green-600 font-medium">View current commodity prices</span>
+                  <span className="text-xs md:text-sm text-green-600 font-medium hidden xs:block">Current commodity prices</span>
+                  <span className="text-xs md:text-sm text-green-600 font-medium xs:hidden">Prices</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-6">
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Welcome,</p>
-                  <p className="text-base font-semibold text-gray-800">{user?.full_name || user?.email || 'Farmer'}</p>
+              <div className="flex items-center space-x-3 md:space-x-6">
+                <div className="text-right hidden sm:block">
+                  <p className="text-xs text-gray-500">Welcome,</p>
+                  <p className="text-sm md:text-base font-semibold text-gray-800">{user?.full_name || user?.email || 'Farmer'}</p>
                 </div>
                 <Link 
                   href="/"
-                  className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-lg hover:from-green-500 hover:to-emerald-600 transition-colors"
+                  className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-base md:text-lg hover:from-green-500 hover:to-emerald-600 transition-colors"
                 >
                   {user?.full_name?.charAt(0) || user?.email?.charAt(0) || 'F'}
                 </Link>
@@ -346,10 +347,10 @@ export default function FarmerMarketPricesPage() {
           </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           {/* Navigation Breadcrumb */}
           <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center space-x-2 text-sm">
+            <div className="flex items-center space-x-2 text-xs md:text-sm">
               <Link href="/" className="text-gray-600 hover:text-gray-900">
                 Home
               </Link>
@@ -357,8 +358,8 @@ export default function FarmerMarketPricesPage() {
               <span className="text-gray-900 font-medium">Market Prices</span>
             </div>
             {lastUpdated && (
-              <p className="text-xs text-gray-500">
-                Last updated: {lastUpdated.toLocaleTimeString()}
+              <p className="text-[10px] md:text-xs text-gray-500">
+                Updated: {lastUpdated.toLocaleTimeString()}
               </p>
             )}
           </div>

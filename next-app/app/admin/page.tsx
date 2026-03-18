@@ -9,6 +9,7 @@ import PriceApprovalTable from '@/components/admin/PriceApprovalTable';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [stats, setStats] = useState({
     totalUsers: 0,
     farmerCount: 0,
@@ -110,12 +111,17 @@ export default function AdminDashboard() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <AdminSideNav activeTab={activeTab} setActiveTab={setActiveTab} />
+      <AdminSideNav 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+      />
       <main className="flex-1 flex flex-col overflow-y-auto">
-        <AdminTopNav />
-        <div className="p-8 max-w-7xl mx-auto w-full">
+        <AdminTopNav onMenuClick={() => setIsSidebarOpen(true)} />
+        <div className="p-4 md:p-8 max-w-7xl mx-auto w-full">
           <div className="mb-8">
-            <h1 className="text-text-dark dark:text-text-light text-4xl font-black leading-tight tracking-tight">
+            <h1 className="text-text-dark dark:text-text-light text-2xl md:text-4xl font-black leading-tight tracking-tight">
               {pageInfo.title}
             </h1>
             <p className="text-text-secondary dark:text-text-secondary/80 text-base font-normal mt-1">

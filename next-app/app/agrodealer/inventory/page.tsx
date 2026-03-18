@@ -105,6 +105,8 @@ export default function ProductCatalog() {
     'unit'
   ];
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   // Fetch products on mount
   useEffect(() => {
     fetchProducts();
@@ -378,23 +380,23 @@ export default function ProductCatalog() {
         <header className="bg-white/80 backdrop-blur-md border-b border-green-100 shadow-sm sticky top-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
-              <div className="flex items-center space-x-4">
-                <div className="h-12 w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg flex items-center justify-center">
-                  <span className="text-2xl">🌾</span>
+              <div className="flex items-center space-x-3 md:space-x-4">
+                <div className="h-10 w-10 md:h-12 md:w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center">
+                  <span className="text-xl md:text-2xl">🌾</span>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
+                  <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent truncate max-w-[120px] md:max-w-none">
                     Agro-Supplier
                   </h1>
-                  <span className="text-sm text-green-600 font-medium">My Products</span>
+                  <span className="text-xs md:text-sm text-green-600 font-medium">My Products</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-6">
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Welcome back,</p>
-                  <p className="text-base font-semibold text-gray-800">{user?.full_name || 'Dealer'}</p>
+              <div className="flex items-center space-x-3 md:space-x-6">
+                <div className="text-right hidden sm:block">
+                  <p className="text-xs text-gray-500">Welcome back,</p>
+                  <p className="text-sm md:text-base font-semibold text-gray-800">{user?.full_name || 'Dealer'}</p>
                 </div>
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-lg">
+                <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-base md:text-lg">
                   {user?.full_name?.charAt(0) || user?.email?.charAt(0) || 'D'}
                 </div>
               </div>
@@ -403,30 +405,58 @@ export default function ProductCatalog() {
         </header>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          {/* Add Product Button */}
-          <div className="mb-6 flex justify-end">
+          {/* Add Product Button and Mobile Filter Toggle */}
+          <div className="mb-6 flex justify-between items-center gap-4">
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 text-gray-700 font-medium rounded-xl shadow-sm hover:bg-gray-50 transition-all"
+            >
+              <span className="text-lg">🔍</span>
+              Filters
+            </button>
             <button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 text-sm md:text-base"
             >
-              <span className="text-xl">➕</span>
-              Add New Product
+              <span className="text-lg md:text-xl">➕</span>
+              <span className="hidden xs:inline">Add New Product</span>
+              <span className="xs:hidden">Add</span>
             </button>
           </div>
 
-          <div className="flex gap-6">
-            {/* Sidebar Filters */}
-            <div className="w-80 flex-shrink-0">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-green-100 overflow-y-auto custom-scrollbar sticky top-24" style={{ maxHeight: 'calc(100vh - 120px)' }}>
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-5">
-                    <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                      </svg>
-                      Filters
-                    </h2>
-                  </div>
+          <div className="flex gap-6 relative">
+            {/* Sidebar Filters - Responsive */}
+            <>
+              {/* Mobile Backdrop */}
+              {isSidebarOpen && (
+                <div 
+                  className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+                  onClick={() => setIsSidebarOpen(false)}
+                />
+              )}
+              
+              <div className={`
+                fixed lg:sticky top-0 lg:top-24 left-0 z-50 lg:z-0
+                h-screen lg:h-auto w-72 md:w-80 shrink-0
+                transition-transform duration-300 transform
+                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+              `}>
+                <div className="bg-white lg:bg-white/90 lg:backdrop-blur-sm h-full lg:h-auto lg:rounded-2xl shadow-2xl lg:shadow-lg border-r lg:border border-green-100 overflow-y-auto custom-scrollbar" style={{ maxHeight: '100vh' }}>
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-5">
+                      <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                        Filters
+                      </h2>
+                      <button 
+                        onClick={() => setIsSidebarOpen(false)}
+                        className="lg:hidden p-2 text-gray-400 hover:text-gray-600"
+                      >
+                        ✕
+                      </button>
+                    </div>
 
                   <div className="mb-6">
                     <div className="relative">

@@ -182,39 +182,39 @@ export default function AgroDealerDashboard() {
         {/* Header */}
         <header className="bg-white/80 backdrop-blur-md border-b border-green-100 shadow-sm sticky top-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
-              <div className="flex items-center space-x-4">
-                <div className="h-12 w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg flex items-center justify-center">
-                  <span className="text-2xl">📊</span>
+              <div className="flex justify-between items-center h-20">
+                <div className="flex items-center space-x-4">
+                  <div className="h-10 w-10 md:h-12 md:w-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center">
+                    <span className="text-xl md:text-2xl">📊</span>
+                  </div>
+                  <div>
+                    <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent truncate max-w-[150px] md:max-w-none">
+                      {profile?.business_name || 'Agro-Supplier'}
+                    </h1>
+                    <span className="text-xs md:text-sm text-green-600 font-medium">Dealer Dashboard</span>
+                  </div>
                 </div>
-                <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-700 bg-clip-text text-transparent">
-                    {profile?.business_name || 'Agro-Supplier'}
-                  </h1>
-                  <span className="text-sm text-green-600 font-medium">Dealer Dashboard</span>
+                <div className="flex items-center space-x-3 md:space-x-6">
+                  <button 
+                    onClick={() => setIsMessageModalOpen(true)}
+                    className="relative p-2 text-gray-400 hover:text-green-600 transition-colors"
+                  >
+                    <span className="text-xl md:text-2xl">🔔</span>
+                    {unreadMessages.length > 0 && (
+                      <span className="absolute top-0 right-0 h-4 w-4 md:h-5 md:w-5 bg-red-500 text-white text-[9px] md:text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">
+                        {unreadMessages.length}
+                      </span>
+                    )}
+                  </button>
+                  <div className="text-right hidden sm:block">
+                    <p className="text-xs text-gray-500">Welcome back,</p>
+                    <p className="text-sm md:text-base font-semibold text-gray-800">{profile?.full_name || user?.full_name || 'Dealer'}</p>
+                  </div>
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-base md:text-lg">
+                    {profile?.full_name?.charAt(0) || user?.full_name?.charAt(0) || user?.email?.charAt(0) || 'D'}
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-6">
-                <button 
-                  onClick={() => setIsMessageModalOpen(true)}
-                  className="relative p-2 text-gray-400 hover:text-green-600 transition-colors"
-                >
-                  <span className="text-2xl">🔔</span>
-                  {unreadMessages.length > 0 && (
-                    <span className="absolute top-0 right-0 h-5 w-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">
-                      {unreadMessages.length}
-                    </span>
-                  )}
-                </button>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Welcome back,</p>
-                  <p className="text-base font-semibold text-gray-800">{profile?.full_name || user?.full_name || 'Dealer'}</p>
-                </div>
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg flex items-center justify-center text-white font-bold text-lg">
-                  {profile?.full_name?.charAt(0) || user?.full_name?.charAt(0) || user?.email?.charAt(0) || 'D'}
-                </div>
-              </div>
-            </div>
           </div>
         </header>
 
@@ -484,8 +484,8 @@ export default function AgroDealerDashboard() {
               </Link>
             </div>
 
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-green-100 overflow-hidden">
-              <table className="w-full">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-green-100 overflow-x-auto">
+              <table className="w-full min-w-[800px] md:min-w-0">
                 <thead className="bg-gradient-to-r from-green-50 to-emerald-50">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Product</th>
